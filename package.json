@@ -1,0 +1,41 @@
+{
+  "name": "@storyscout/llm-client",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Provider-neutral LLM client interfaces and adapters for StoryScout",
+  "engines": {
+    "node": "^22.13.0 || >=24.0.0"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src tests",
+    "format": "prettier --write . --ignore-path .gitignore",
+    "format:check": "prettier --check . --ignore-path .gitignore",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm test && npm run build"
+  },
+  "dependencies": {
+    "openai": "^5.23.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "eslint": "^9.39.5",
+    "prettier": "^3.9.0",
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.66.0",
+    "vitest": "^3.2.4"
+  }
+}
